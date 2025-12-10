@@ -52,7 +52,7 @@ Note: This is not intended for high-security applications. Use strong keys and a
 - <b>Revealing:</b> Extracts LSBs, decrypts with XOR, reads the length prefix, and slices the exact message.
 - <b>Capacity Check:</b> Ensures the image has enough pixels (3 bits per pixel) to hold the data; alerts if the message is too long.
 - <b>Error Detection:</b> Validates extracted data; shows errors for wrong keys, corrupted images, or insufficient data.
-- 
+
 2. ### Technologies and Languages
 - <b>HTML5:</b> Structure of the web app, including forms, dropzones, and UI elements.
 - <b>CSS3:</b> Styling with modern features like backdrop-filter for glassmorphism, flexbox for layout, and responsive design.
