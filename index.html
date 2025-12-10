@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Steganography</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Image Steganography</h1>
+    
+    <div class="container">
+        <div class="section" id="hideSection">
+            <h2>Hide Message</h2>
+            <div class="dropzone" id="hideDropzone">
+                <span class="dropzone-text">Drag and drop an image here or click to select</span>
+                <div class="remove-icon" id="hideRemoveIcon" style="display: none;">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M3 6h18v2H3V6zm2 2v12c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V8H5zm3 2h2v8H8v-8zm4 0h2v8h-2v-8z" fill="red"/>
+                    </svg>
+                </div>
+            </div>
+            <input type="file" id="hideImageInput" accept="image/png,image/jpeg,image/jpg" style="display: none;">
+            <textarea id="message" placeholder="Enter message to hide" rows="10" cols="60"></textarea><br>
+            <div class="key-container">
+                <input type="password" id="hideKey" placeholder="Optional key/password">
+                <div class="eye-icon" id="hideEyeIcon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z" fill="#fff"/>
+                    </svg>
+                </div>
+            </div>
+            <button id="hideButton">Hide Message and Download</button>
+            <div class="warning">Note: JPG/JPEG images may lose hidden data due to compression. PNG is recommended for best results.</div>
+            <canvas id="imageCanvas"></canvas>
+        </div>
+        
+        <div class="section" id="revealSection">
+            <h2>Reveal Message</h2>
+            <div class="dropzone" id="revealDropzone">
+                <span class="dropzone-text">Drag and drop the steganographed image here or click to select</span>
+                <div class="remove-icon" id="revealRemoveIcon" style="display: none;">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M3 6h18v2H3V6zm2 2v12c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V8H5zm3 2h2v8H8v-8zm4 0h2v8h-2v-8z" fill="red"/>
+                    </svg>
+                </div>
+            </div>
+            <input type="file" id="revealImageInput" accept="image/png,image/jpeg,image/jpg" style="display: none;">
+            <div class="key-container">
+                <input type="password" id="revealKey" placeholder="Enter key if used">
+                <div class="eye-icon" id="revealEyeIcon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z" fill="#fff"/>
+                    </svg>
+                </div>
+            </div>
+            <button id="revealButton">Reveal Message</button>
+            <div id="revealedMessage"></div>
+            <div class="warning">Note: If the image was originally JPG/JPEG, hidden data may be corrupted.</div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
